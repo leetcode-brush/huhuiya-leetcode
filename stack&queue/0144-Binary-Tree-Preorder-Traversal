@@ -1,0 +1,21 @@
+class Solution{
+public:
+    vector<int> preorderTraveral(TreeNode* root) {
+        if(!root) return {};
+        vector<int> res;
+        TreeNode* p = root;
+        stack<TreeNode*> s;
+        while(p || !s.empty()) {
+            while(p) {
+                s.push(p);
+                res.push_back(p->val);
+                p = p -> left;
+            }
+            TreeNode* t = s.top(); s.pop();
+            p = p -> right;
+        }
+        return res;
+    }
+};
+        
+  
