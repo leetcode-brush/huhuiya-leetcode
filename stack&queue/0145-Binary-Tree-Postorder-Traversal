@@ -1,0 +1,38 @@
+class Solution{
+public:
+    vector<int> postorderTraveral(TreeNode* root) {
+        if(!root) return {};
+        vector<int> res;
+        TreeNode* p = root;
+        stack<TreeNode*> s;
+        while(p || !s.empty()) {
+            while(p) {
+                s.push(p);
+                res.insert(res.begin(),p->val);
+                p = p -> right;
+            }
+            TreeNode* t = s.top(); s.pop();
+            p = p -> left;
+        }
+        return res;
+    }
+};
+
+class Solution{
+public:
+    vector<int> postorderTraveral(TreeNode* root) {
+        if(!root) return {};
+        vector<int> res;
+        stack<TreeNode*> s ({root});
+        while(!s.empty()) {
+            TreeNode* t = s.top(); s.pop();
+            res.insert(res.begin(),t->val);
+            if(t->left) s.push(t->left);
+            if(t->right) s.push(t-right);
+        }
+        return res;
+    }
+};
+    
+           
+    
