@@ -1,0 +1,4 @@
+class NestedIterator{
+public:
+    NestedIterator(vector<NestedInteger>& nestedList) {
+    
